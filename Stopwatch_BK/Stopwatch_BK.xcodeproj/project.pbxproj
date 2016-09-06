@@ -14,6 +14,8 @@
 		84F77C0F1D7CF0D300A064F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F77C0D1D7CF0D300A064F6 /* LaunchScreen.storyboard */; };
 		84F77C1A1D7CF0D300A064F6 /* Stopwatch_BKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F77C191D7CF0D300A064F6 /* Stopwatch_BKTests.swift */; };
 		84F77C251D7CF0D300A064F6 /* Stopwatch_BKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F77C241D7CF0D300A064F6 /* Stopwatch_BKUITests.swift */; };
+		84F8F2A41D7D03FD00CF71C7 /* StopwatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F8F2A31D7D03FD00CF71C7 /* StopwatchModel.swift */; };
+		84F8F2A61D7D06F200CF71C7 /* Lap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F8F2A51D7D06F200CF71C7 /* Lap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		84F77C201D7CF0D300A064F6 /* Stopwatch_BKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Stopwatch_BKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F77C241D7CF0D300A064F6 /* Stopwatch_BKUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch_BKUITests.swift; sourceTree = "<group>"; };
 		84F77C261D7CF0D300A064F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84F8F2A31D7D03FD00CF71C7 /* StopwatchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopwatchModel.swift; sourceTree = "<group>"; };
+		84F8F2A51D7D06F200CF71C7 /* Lap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +102,11 @@
 			isa = PBXGroup;
 			children = (
 				84F77C041D7CF0D300A064F6 /* AppDelegate.swift */,
+				84F8F2A51D7D06F200CF71C7 /* Lap.swift */,
 				84F77C061D7CF0D300A064F6 /* ViewController.swift */,
 				84F77C081D7CF0D300A064F6 /* Main.storyboard */,
 				84F77C0B1D7CF0D300A064F6 /* Assets.xcassets */,
+				84F8F2A31D7D03FD00CF71C7 /* StopwatchModel.swift */,
 				84F77C0D1D7CF0D300A064F6 /* LaunchScreen.storyboard */,
 				84F77C101D7CF0D300A064F6 /* Info.plist */,
 			);
@@ -263,7 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				84F77C071D7CF0D300A064F6 /* ViewController.swift in Sources */,
+				84F8F2A61D7D06F200CF71C7 /* Lap.swift in Sources */,
 				84F77C051D7CF0D300A064F6 /* AppDelegate.swift in Sources */,
+				84F8F2A41D7D03FD00CF71C7 /* StopwatchModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +522,7 @@
 				84F77C2B1D7CF0D300A064F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84F77C2C1D7CF0D300A064F6 /* Build configuration list for PBXNativeTarget "Stopwatch_BKTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +531,7 @@
 				84F77C2E1D7CF0D300A064F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84F77C2F1D7CF0D300A064F6 /* Build configuration list for PBXNativeTarget "Stopwatch_BKUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +540,7 @@
 				84F77C311D7CF0D300A064F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
