@@ -19,14 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qj1-BK-sGs">
-                                <state key="normal" title="Start"/>
-                                <connections>
-                                    <action selector="Starter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zdf-4Z-Zfg"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="Timer Display" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QS-5i-Tj8" userLabel="Timer Display">
-                                <fontDescription key="fontDescription" type="system" pointSize="72"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="Timer Display" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QS-5i-Tj8" userLabel="Timer Display">
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -36,16 +30,22 @@
                                     <action selector="lapResetTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QOK-b9-o1x"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qj1-BK-sGs">
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startStopTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cet-jh-EvA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6QS-5i-Tj8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="48H-IE-0Im"/>
                             <constraint firstAttribute="trailing" secondItem="6QS-5i-Tj8" secondAttribute="trailing" constant="20" id="8op-T9-g9C"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="aYg-hK-7v3" secondAttribute="trailing" constant="20" id="Iut-Xk-zW0"/>
+                            <constraint firstItem="qj1-BK-sGs" firstAttribute="top" secondItem="6QS-5i-Tj8" secondAttribute="bottom" constant="60" id="9ok-fQ-FoG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aYg-hK-7v3" secondAttribute="trailing" constant="40" id="Iut-Xk-zW0"/>
                             <constraint firstItem="6QS-5i-Tj8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="SIH-IF-gfR"/>
-                            <constraint firstItem="qj1-BK-sGs" firstAttribute="top" secondItem="6QS-5i-Tj8" secondAttribute="bottom" constant="60" id="b55-xn-4ww"/>
                             <constraint firstItem="aYg-hK-7v3" firstAttribute="top" secondItem="6QS-5i-Tj8" secondAttribute="bottom" constant="60" id="jvo-9e-1uB"/>
-                            <constraint firstItem="qj1-BK-sGs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="osZ-4q-vPF"/>
+                            <constraint firstItem="qj1-BK-sGs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="k1J-qH-QdB"/>
                         </constraints>
                     </view>
                     <connections>
@@ -56,6 +56,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="34.632683658170919"/>
         </scene>
     </scenes>
 </document>

@@ -7,8 +7,8 @@ class ViewController: UIViewController {
     let RUNNING: Int = 1
     let PAUSED: Int = 2
     
-    var currentTime = 0
-    var lapTime = 0
+    var currentTime: CLong = 0
+    var lapTime: CLong = 0
     var secondsPortion = 0
     var millisecondsPortion = 0
     var timer = Timer()
@@ -19,39 +19,34 @@ class ViewController: UIViewController {
     @IBAction func lapResetTouchUpInside(_ sender: AnyObject) {
         if stopWatchState == PAUSED {
             currentTime = 0
-            self.stopWatchTimerDisplay.text = "00:00"
-            self.stopWatchLapResetButton.setTitle("Lap", for: .normal)
+            lapTime = 0
+            stopWatchTimerDisplay.text = "00:00:00"
+            stopWatchLapResetButton.setTitle("Lap", for: .normal)
         }
         else {
-            self.lapTime = 0
+            lapTime = 0
         }
     }
     
     @IBOutlet weak var stopWatchStartStopButton: UIButton!
-    @IBAction func Starter(_ sender: AnyObject) {
+    @IBAction func startStopTouchUpInside(_ sender: AnyObject) {
         print("Start Stop Pressed")
         if stopWatchState == STOPPED || stopWatchState == PAUSED {
             stopWatchState = RUNNING
-            self.stopWatchLapResetButton.setTitle("Lap", for: .normal)
-            self.stopWatchStartStopButton.setTitle("Stop", for: .normal)
+            stopWatchLapResetButton.setTitle("Lap", for: .normal)
+            stopWatchStartStopButton.setTitle("Stop", for: .normal)
             timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { (Timer) in
                 self.currentTime = self.currentTime + 1
                 self.lapTime = self.lapTime + 1
-                print("\(self.lapTime)")
-                self.secondsPortion = self.currentTime / 100
-                self.millisecondsPortion = self.currentTime % 100
-                self.stopWatchTimerDisplay.text = "\(self.secondsPortion):\(self.millisecondsPortion)"
+                self.stopWatchTimerDisplay.text = self.convertTimeToString(self.currentTime)
             })
         }
         else {
-            self.stopWatchStartStopButton.setTitle("Start", for: .normal)
-            self.stopWatchLapResetButton.setTitle("Reset", for: .normal)
+            stopWatchStartStopButton.setTitle("Start", for: .normal)
+            stopWatchLapResetButton.setTitle("Reset", for: .normal)
             stopWatchState = PAUSED
             timer.invalidate()
-        }
-    }
-
-
+        }    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +58,47 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    private func convertTimeToString(_ time: CLong) -> String {
+        var milliPortion = ""
+        var millis = 0
+        var seconds = 0
+        var minutes = 0
+        var secondsPortion = ""
+        var minutesPortion = ""
+        var resultString = ""
+        
+        millis = time % 100
+        milliPortion = "\(millis)"
+        if millis == 0 {
+            milliPortion = "00"
+        }
+        if millis > 0 && millis < 10 {
+            milliPortion = "0\(millis)"
+        }
+        
+        seconds = time / 100 % 60
+        secondsPortion = "\(seconds)"
+        if seconds == 0 {
+            secondsPortion = "00"
+        }
+        if seconds > 0 && seconds < 10 {
+            secondsPortion = "0\(seconds)"
+        }
+        
+        minutes = time / 100 / 60 % 60
+        minutesPortion = "\(minutes)"
+        if minutes == 0 {
+            minutesPortion = "00"
+        }
+        if minutes > 0 && minutes < 10 {
+            minutesPortion = "0\(minutes)"
+        }
+        
+        resultString = "\(minutesPortion):\(secondsPortion):\(milliPortion)"
+        print(resultString)
+        
+        return resultString
+    }
 
 }
 
