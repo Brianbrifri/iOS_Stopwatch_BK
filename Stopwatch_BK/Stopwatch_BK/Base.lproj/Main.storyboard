@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,18 +19,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qj1-BK-sGs">
-                                <frame key="frameInset" minX="89" minY="265" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qj1-BK-sGs">
                                 <state key="normal" title="Start"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYg-hK-7v3">
-                                <frame key="frameInset" minX="258" minY="265" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Lap"/>
                                 <connections>
-                                    <action selector="lapResetTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QOK-b9-o1x"/>
-                                    <action selector="startStopTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="itW-ol-HWF"/>
+                                    <action selector="Starter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zdf-4Z-Zfg"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="Timer Display" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QS-5i-Tj8" userLabel="Timer Display">
@@ -37,12 +30,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYg-hK-7v3">
+                                <state key="normal" title="Lap"/>
+                                <connections>
+                                    <action selector="lapResetTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QOK-b9-o1x"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6QS-5i-Tj8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="48H-IE-0Im"/>
                             <constraint firstAttribute="trailing" secondItem="6QS-5i-Tj8" secondAttribute="trailing" constant="20" id="8op-T9-g9C"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aYg-hK-7v3" secondAttribute="trailing" constant="20" id="Iut-Xk-zW0"/>
                             <constraint firstItem="6QS-5i-Tj8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="SIH-IF-gfR"/>
+                            <constraint firstItem="qj1-BK-sGs" firstAttribute="top" secondItem="6QS-5i-Tj8" secondAttribute="bottom" constant="60" id="b55-xn-4ww"/>
+                            <constraint firstItem="aYg-hK-7v3" firstAttribute="top" secondItem="6QS-5i-Tj8" secondAttribute="bottom" constant="60" id="jvo-9e-1uB"/>
+                            <constraint firstItem="qj1-BK-sGs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="osZ-4q-vPF"/>
                         </constraints>
                     </view>
                     <connections>
