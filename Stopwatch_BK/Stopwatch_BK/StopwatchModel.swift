@@ -43,13 +43,17 @@ public class StopWatchModel {
         return lapNumber
     }
     
+    private func reset() {
+        stopWatchState = STOPPED
+        listOfLaps = []
+        currentTime = 0
+        lapTime = 0
+        lapNumber = 0
+    }
+    
     func lapResetButtonPressed() {
         if stopWatchState == PAUSED {
-            stopWatchState = STOPPED
-            listOfLaps = []
-            currentTime = 0
-            lapTime = 0
-            lapNumber = 0
+            reset()
             delegate?.updateTimerView(currentTime: currentTime, lapTime: lapTime)
         }
         else {
