@@ -2,15 +2,15 @@
 import Foundation
 
 public class Lap {
-    private var lapTime = ""
-    private var lapNumber: Int = 0
+    private var lapTime: CLong
+    private var lapNumber: Int
     
-    init(lapTime: String, lapNumber: Int) {
+    init(lapTime: CLong, lapNumber: Int) {
         self.lapTime = lapTime
         self.lapNumber = lapNumber
     }
     
-    func getLapTime() -> String {
+    func getLapTime() -> CLong {
         return lapTime
     }
     

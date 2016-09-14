@@ -14,6 +14,7 @@
 		84F77C0F1D7CF0D300A064F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F77C0D1D7CF0D300A064F6 /* LaunchScreen.storyboard */; };
 		84F77C1A1D7CF0D300A064F6 /* Stopwatch_BKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F77C191D7CF0D300A064F6 /* Stopwatch_BKTests.swift */; };
 		84F77C251D7CF0D300A064F6 /* Stopwatch_BKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F77C241D7CF0D300A064F6 /* Stopwatch_BKUITests.swift */; };
+		84F89E581D88FACE007AF8E8 /* LapCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F89E571D88FACE007AF8E8 /* LapCellTableViewCell.swift */; };
 		84F8F2A41D7D03FD00CF71C7 /* StopwatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F8F2A31D7D03FD00CF71C7 /* StopwatchModel.swift */; };
 		84F8F2A61D7D06F200CF71C7 /* Lap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F8F2A51D7D06F200CF71C7 /* Lap.swift */; };
 /* End PBXBuildFile section */
@@ -49,6 +50,7 @@
 		84F77C201D7CF0D300A064F6 /* Stopwatch_BKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Stopwatch_BKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F77C241D7CF0D300A064F6 /* Stopwatch_BKUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch_BKUITests.swift; sourceTree = "<group>"; };
 		84F77C261D7CF0D300A064F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84F89E571D88FACE007AF8E8 /* LapCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LapCellTableViewCell.swift; sourceTree = "<group>"; };
 		84F8F2A31D7D03FD00CF71C7 /* StopwatchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopwatchModel.swift; sourceTree = "<group>"; };
 		84F8F2A51D7D06F200CF71C7 /* Lap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +111,7 @@
 				84F8F2A31D7D03FD00CF71C7 /* StopwatchModel.swift */,
 				84F77C0D1D7CF0D300A064F6 /* LaunchScreen.storyboard */,
 				84F77C101D7CF0D300A064F6 /* Info.plist */,
+				84F89E571D88FACE007AF8E8 /* LapCellTableViewCell.swift */,
 			);
 			path = Stopwatch_BK;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				84F8F2A61D7D06F200CF71C7 /* Lap.swift in Sources */,
 				84F77C051D7CF0D300A064F6 /* AppDelegate.swift in Sources */,
 				84F8F2A41D7D03FD00CF71C7 /* StopwatchModel.swift in Sources */,
+				84F89E581D88FACE007AF8E8 /* LapCellTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
