@@ -53,8 +53,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = convertTimeToString(model.getListOfLaps()[indexPath.row].getLapTime())
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LapCellTableViewCell", for: indexPath) as! LapCellTableViewCell
+        cell.lapTime.text = convertTimeToString(model.getListOfLaps()[indexPath.row].getLapTime())
+        cell.lapNumber.text = "Lap# \(model.getListOfLaps()[indexPath.row].getLapNumber())"
         return cell
     }
     

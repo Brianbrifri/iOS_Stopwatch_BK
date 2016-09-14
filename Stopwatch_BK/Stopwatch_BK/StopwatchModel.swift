@@ -15,11 +15,11 @@ public class StopWatchModel {
     let RUNNING: Int = 1
     let PAUSED: Int = 2
     
-    var currentTime: CLong = 0
-    var lapTime: CLong = 0
-    var secondsPortion = 0
-    var millisecondsPortion = 0
-    var timer: Timer?
+    private var currentTime: CLong = 0
+    private var lapTime: CLong = 0
+    private var secondsPortion = 0
+    private var millisecondsPortion = 0
+    private var timer: Timer?
     var stopWatchState: Int
     
     init() {
@@ -29,7 +29,6 @@ public class StopWatchModel {
     }
     
     private func addNewLap(currentLapTime: CLong) {
-        print(currentLapTime)
         lapNumber = lapNumber + 1
         let lap = Lap(lapTime: currentLapTime, lapNumber: lapNumber)
         listOfLaps.insert(lap, at: 0)
