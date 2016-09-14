@@ -29,7 +29,7 @@ public class StopWatchModel {
     }
     
     private func addNewLap(currentLapTime: CLong) {
-        lapNumber = lapNumber + 1
+        lapNumber += 1
         let lap = Lap(lapTime: currentLapTime, lapNumber: lapNumber)
         listOfLaps.insert(lap, at: 0)
         lapTime = 0
