@@ -3,12 +3,14 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ModelProtocol {
     
+    //MARK: Stopwatch States
     let STOPPED: Int = 0
     let RUNNING: Int = 1
     let PAUSED: Int = 2
     
     private let model: StopWatchModel
     
+    //MARK: Initialize Outlets
     @IBOutlet weak var tableViewOfLaps: UITableView!
     @IBOutlet weak var lapTimerDisplay: UILabel!
     @IBOutlet weak var stopWatchTimerDisplay: UILabel!
@@ -21,14 +23,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.init(coder: aDecoder)
     }
     
+    //MARK: set delegates on viewLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewOfLaps.delegate = self
         tableViewOfLaps.dataSource = self
         model.delegate = self
         stopWatchLapResetButton.isEnabled = false
+//        stopWatchStartStopButton.layer.cornerRadius = 0.5 * stopWatchStartStopButton.bounds.size.width
+//        stopWatchStartStopButton.layer.borderColor = UIColor(red: 0, green: 255, blue: 0, alpha: 1).cgColor as CGColor
+//        stopWatchStartStopButton.layer.borderWidth = 2.0
+//        stopWatchStartStopButton.clipsToBounds = true
     }
     
+    //MARK: Function tied to lapReset Button. Calls model.lapResetButtonPressed()
+    //and reloads tableview data
+    //sets button title to lap and disabled if the state is paused, reverting to 
+    //default start state
     @IBAction func lapResetTouchUpInside(_ sender: UIButton) {
         if model.stopWatchState == PAUSED {
             stopWatchLapResetButton.setTitle("Lap", for: .normal)
@@ -38,6 +49,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableViewOfLaps.reloadData()
     }
     
+    //MARK: Function tied to startStop button. calls model.startStopButtonPressed()
+    //sets button labels to Stop and Lap if pressed when paused, otherwise sets them to 
+    //Start and Reset if pressed while running
     @IBAction func startStopTouchUpInside(_ sender: UIButton) {
         if model.stopWatchState == STOPPED || model.stopWatchState == PAUSED {
             stopWatchLapResetButton.setTitle("Lap", for: .normal)
@@ -52,6 +66,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
 
+    //MARK: implementation of required function cellForRowAt for tableView. Sets dequeueReusableCell return
+    //to custom cell with a lapTime and lapNumber lable.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LapCellTableViewCell", for: indexPath) as! LapCellTableViewCell
         cell.lapTime.text = convertTimeToString(model.getListOfLaps()[indexPath.row].getLapTime())
@@ -59,15 +75,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+    //MARK: returns number of laps for required function numberOfRowsInSection
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.getNumberOfLaps()
     }
     
+    //function from my protocol that updates the timerDisplays
     func updateTimerView(currentTime: CLong, lapTime: CLong) {
         stopWatchTimerDisplay.text = convertTimeToString(currentTime)
         lapTimerDisplay.text = convertTimeToString(lapTime)
     }
     
+    //MARK: function that converts a long int to time format
     private func convertTimeToString(_ time: CLong) -> String {
         var milliPortion = ""
         var secondsPortion = ""

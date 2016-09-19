@@ -1,6 +1,7 @@
 
 import Foundation
 
+//MARK: Lap class gets created for every lap. Holds lapTime and lapNumber
 public class Lap {
     private var lapTime: CLong
     private var lapNumber: Int
