@@ -30,10 +30,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableViewOfLaps.dataSource = self
         model.delegate = self
         stopWatchLapResetButton.isEnabled = false
-//        stopWatchStartStopButton.layer.cornerRadius = 0.5 * stopWatchStartStopButton.bounds.size.width
-//        stopWatchStartStopButton.layer.borderColor = UIColor(red: 0, green: 255, blue: 0, alpha: 1).cgColor as CGColor
-//        stopWatchStartStopButton.layer.borderWidth = 2.0
-//        stopWatchStartStopButton.clipsToBounds = true
+        stopWatchStartStopButton.layer.cornerRadius = 25
+        stopWatchStartStopButton.layer.borderColor = UIColor.green.cgColor
+        stopWatchStartStopButton.layer.borderWidth = 2.0
+        stopWatchStartStopButton.clipsToBounds = true
+        stopWatchLapResetButton.layer.cornerRadius = 25
+        stopWatchLapResetButton.layer.borderColor = UIColor.gray.cgColor
+        stopWatchLapResetButton.layer.borderWidth = 2.0
+        stopWatchLapResetButton.clipsToBounds = true
     }
     
     //MARK: Function tied to lapReset Button. Calls model.lapResetButtonPressed()
@@ -44,6 +48,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if model.stopWatchState == PAUSED {
             stopWatchLapResetButton.setTitle("Lap", for: .normal)
             stopWatchLapResetButton.isEnabled = false
+            stopWatchLapResetButton.layer.borderColor = UIColor.gray.cgColor
+            stopWatchLapResetButton.setTitleColor(UIColor.gray, for: .normal)
         }
         model.lapResetButtonPressed()
         tableViewOfLaps.reloadData()
@@ -56,11 +62,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if model.stopWatchState == STOPPED || model.stopWatchState == PAUSED {
             stopWatchLapResetButton.setTitle("Lap", for: .normal)
             stopWatchStartStopButton.setTitle("Stop", for: .normal)
+            stopWatchStartStopButton.setTitleColor(UIColor.red, for: .normal)
+            stopWatchStartStopButton.layer.borderColor = UIColor.red.cgColor
+            stopWatchLapResetButton.layer.borderColor = UIColor.gray.cgColor
+            stopWatchLapResetButton.setTitleColor(UIColor.gray, for: .normal)
             stopWatchLapResetButton.isEnabled = true
         }
         else {
             stopWatchStartStopButton.setTitle("Start", for: .normal)
             stopWatchLapResetButton.setTitle("Reset", for: .normal)
+            stopWatchStartStopButton.layer.borderColor = UIColor.green.cgColor
+            stopWatchStartStopButton.setTitleColor(UIColor.green, for: .normal)
+            stopWatchLapResetButton.layer.borderColor = UIColor.black.cgColor
+            stopWatchLapResetButton.setTitleColor(UIColor.black, for: .normal)
         }
         model.startStopButtonPressed()
     }

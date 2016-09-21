@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,20 +27,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYg-hK-7v3">
-                                <state key="normal" title="Lap"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="CTU-Wk-4Xt"/>
+                                </constraints>
+                                <state key="normal" title="Lap">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="lapResetTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QOK-b9-o1x"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qj1-BK-sGs">
-                                <state key="normal" title="Start"/>
-                                <connections>
-                                    <action selector="startStopTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cet-jh-EvA"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0uJ-23-D2B">
-                                <frame key="frameInset" minY="326" width="375" height="341"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0uJ-23-D2B">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LapCellTableViewCell" id="pCI-Ki-olH" customClass="LapCellTableViewCell" customModule="Stopwatch_BK" customModuleProvider="target">
@@ -48,23 +47,33 @@
                                             <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tbe-ET-54t">
-                                                    <frame key="frameInset" minX="20" minY="11" width="75" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tbe-ET-54t">
                                                     <accessibility key="accessibilityConfiguration" label="LapNumber"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="75" id="esk-kQ-9nA"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.40526832460732987" green="0.40526832460732987" blue="0.40526832460732987" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOw-RN-5J4">
-                                                    <frame key="frameInset" minX="207" minY="11" width="160" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOw-RN-5J4">
                                                     <accessibility key="accessibilityConfiguration" label="LapTime"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="160" id="LHm-r1-t2D"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Tbe-ET-54t" firstAttribute="baseline" secondItem="TOw-RN-5J4" secondAttribute="firstBaseline" id="6eb-IQ-7Pc"/>
+                                                <constraint firstItem="TOw-RN-5J4" firstAttribute="trailing" secondItem="6VQ-mV-AdD" secondAttribute="trailingMargin" id="h8U-Iq-iPI"/>
+                                                <constraint firstItem="Tbe-ET-54t" firstAttribute="leading" secondItem="6VQ-mV-AdD" secondAttribute="leadingMargin" constant="12" id="iQf-2x-nRG"/>
+                                                <constraint firstItem="Tbe-ET-54t" firstAttribute="centerY" secondItem="6VQ-mV-AdD" secondAttribute="centerY" id="l50-at-l9l"/>
+                                                <constraint firstItem="TOw-RN-5J4" firstAttribute="baseline" secondItem="Tbe-ET-54t" secondAttribute="firstBaseline" id="rDx-CS-bw5"/>
+                                                <constraint firstItem="Tbe-ET-54t" firstAttribute="baseline" secondItem="TOw-RN-5J4" secondAttribute="baseline" id="rcm-tL-c76"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="lapNumber" destination="Tbe-ET-54t" id="72k-Nu-Pgs"/>
@@ -73,23 +82,45 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLK-rl-v53" userLabel="LapTimerDisplay">
-                                <frame key="frameInset" minX="225" minY="53" width="94" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLK-rl-v53" userLabel="LapTimerDisplay">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="Dmh-d4-UGc"/>
+                                    <constraint firstAttribute="width" constant="94" id="Sq5-y7-xvl"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qj1-BK-sGs">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="UCJ-gI-Dxl"/>
+                                    <constraint firstAttribute="width" constant="50" id="w30-3u-ahR"/>
+                                </constraints>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startStopTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cet-jh-EvA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6QS-5i-Tj8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="48H-IE-0Im"/>
-                            <constraint firstAttribute="trailing" secondItem="6QS-5i-Tj8" secondAttribute="trailing" constant="20" id="8op-T9-g9C"/>
-                            <constraint firstItem="qj1-BK-sGs" firstAttribute="top" secondItem="6QS-5i-Tj8" secondAttribute="bottom" constant="60" id="9ok-fQ-FoG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="aYg-hK-7v3" secondAttribute="trailing" constant="40" id="Iut-Xk-zW0"/>
-                            <constraint firstItem="6QS-5i-Tj8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="SIH-IF-gfR"/>
-                            <constraint firstItem="aYg-hK-7v3" firstAttribute="top" secondItem="6QS-5i-Tj8" secondAttribute="bottom" constant="60" id="jvo-9e-1uB"/>
-                            <constraint firstItem="qj1-BK-sGs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="k1J-qH-QdB"/>
+                            <constraint firstItem="aYg-hK-7v3" firstAttribute="baseline" secondItem="qj1-BK-sGs" secondAttribute="firstBaseline" id="4kb-IZ-jCz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aYg-hK-7v3" secondAttribute="trailing" constant="20" id="71x-b3-VZO"/>
+                            <constraint firstAttribute="trailing" secondItem="0uJ-23-D2B" secondAttribute="trailing" id="7ke-x0-es8"/>
+                            <constraint firstItem="6QS-5i-Tj8" firstAttribute="top" secondItem="TLK-rl-v53" secondAttribute="bottom" constant="24" id="BT4-Iz-03X"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TLK-rl-v53" secondAttribute="trailing" constant="40" id="NiG-zn-bx9"/>
+                            <constraint firstItem="0uJ-23-D2B" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Vvh-OY-64m"/>
+                            <constraint firstItem="qj1-BK-sGs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="42" id="Wzn-nb-IW7"/>
+                            <constraint firstItem="TLK-rl-v53" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="33" id="bF1-tg-IQ0"/>
+                            <constraint firstItem="0uJ-23-D2B" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bJ9-he-ftx"/>
+                            <constraint firstItem="qj1-BK-sGs" firstAttribute="top" secondItem="6QS-5i-Tj8" secondAttribute="bottom" constant="60" id="ccg-Fo-yil"/>
+                            <constraint firstItem="qj1-BK-sGs" firstAttribute="baseline" secondItem="aYg-hK-7v3" secondAttribute="firstBaseline" id="ee2-lu-NQM"/>
+                            <constraint firstItem="6QS-5i-Tj8" firstAttribute="centerX" secondItem="0uJ-23-D2B" secondAttribute="centerX" id="gbm-Ed-FHC"/>
+                            <constraint firstItem="qj1-BK-sGs" firstAttribute="top" secondItem="aYg-hK-7v3" secondAttribute="top" id="lB2-B1-aNv"/>
+                            <constraint firstItem="0uJ-23-D2B" firstAttribute="top" secondItem="qj1-BK-sGs" secondAttribute="bottom" constant="24" id="ngl-Zt-3w9"/>
+                            <constraint firstItem="6QS-5i-Tj8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="sdl-Ra-MhF"/>
                         </constraints>
                     </view>
                     <connections>
