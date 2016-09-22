@@ -138,7 +138,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             minutesPortion = "0\(minutes)"
         }
         
-        resultString = "\(minutesPortion):\(secondsPortion):\(milliPortion)"
+        resultString = "\(minutesPortion):\(secondsPortion).\(milliPortion)"
         
         return resultString
     }

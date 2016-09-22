@@ -22,10 +22,9 @@ public class StopWatchModel {
     //MARK: Initialize more variables
     private var currentTime: CLong = 0
     private var lapTime: CLong = 0
-    private var startCurrentTime: CLong
-    private var startLapTime: CLong
+    private var startCurrentTime: CLong = 0
+    private var startLapTime: CLong = 0
     private var secondsPortion = 0
-    private var millisecondsPortion = 0
     private var timer: Timer?
     var stopWatchState: Int
     
@@ -42,7 +41,8 @@ public class StopWatchModel {
         lapNumber += 1
         let lap = Lap(lapTime: currentLapTime, lapNumber: lapNumber)
         listOfLaps.insert(lap, at: 0)
-        lapTime = 0
+        startLapTime = CLong(Date().timeIntervalSince1970 * 100)
+        
     }
     
     //MARK: returns the list of laps
@@ -82,9 +82,11 @@ public class StopWatchModel {
     func startStopButtonPressed() {
         if stopWatchState == STOPPED || stopWatchState == PAUSED {
             stopWatchState = RUNNING
+            startCurrentTime = CLong(Date().timeIntervalSince1970 * 100) - currentTime
+            startLapTime = CLong(Date().timeIntervalSince1970 * 100) - lapTime
             timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { (Timer) in
-                self.currentTime += 1
-                self.lapTime += 1
+                self.currentTime = CLong(Date().timeIntervalSince1970 * 100) - self.startCurrentTime
+                self.lapTime = CLong(Date().timeIntervalSince1970 * 100) - self.startLapTime
                 self.delegate?.updateTimerView(currentTime: self.currentTime, lapTime: self.lapTime)
             })
             RunLoop.current.add(timer!, forMode: RunLoopMode.commonModes)
