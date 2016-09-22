@@ -22,16 +22,19 @@ public class StopWatchModel {
     //MARK: Initialize more variables
     private var currentTime: CLong = 0
     private var lapTime: CLong = 0
+    private var startCurrentTime: CLong
+    private var startLapTime: CLong
     private var secondsPortion = 0
     private var millisecondsPortion = 0
     private var timer: Timer?
     var stopWatchState: Int
     
     //MARK: Init function for when model gets instantiated
-    init() {
+    init(delegate: ModelProtocol) {
         lapNumber = 0
         listOfLaps = []
         stopWatchState = STOPPED
+        self.delegate = delegate
     }
     
     //MARK: increases lap counter, adds lap to list of laps, resets lap time to 0

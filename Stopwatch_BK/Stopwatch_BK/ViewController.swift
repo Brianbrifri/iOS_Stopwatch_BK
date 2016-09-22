@@ -8,7 +8,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let RUNNING: Int = 1
     let PAUSED: Int = 2
     
-    private let model: StopWatchModel
+    private var model: StopWatchModel!
     
     //MARK: Initialize Outlets
     @IBOutlet weak var tableViewOfLaps: UITableView!
@@ -19,8 +19,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     required init?(coder aDecoder: NSCoder) {
-        model = StopWatchModel()
+        
         super.init(coder: aDecoder)
+        model = StopWatchModel(delegate: self)
     }
     
     //MARK: set delegates on viewLoad
