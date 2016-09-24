@@ -76,15 +76,16 @@ public class StopWatchModel {
         
     }
     
-    //MARK: starts timer and puts it into a runLoop, repeating every .01 seconds, incrementing the 
-    //currentTime and lapTime. Also updates the timerView by calling the delegate method every .01 seconds
+    //MARK: starts timer and puts it into a runLoop, repeating every .01 seconds, 
+    //updating the timer
+    //Also updates the timerView by calling the delegate method every .01 seconds
     //Otherwise invalidates the timer to prevent timer from running but keeps current and lapTime
     func startStopButtonPressed() {
         if stopWatchState == STOPPED || stopWatchState == PAUSED {
             stopWatchState = RUNNING
             startCurrentTime = CLong(Date().timeIntervalSince1970 * 100) - currentTime
             startLapTime = CLong(Date().timeIntervalSince1970 * 100) - lapTime
-            timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { (Timer) in
+            timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { [unowned self](Timer) in
                 self.currentTime = CLong(Date().timeIntervalSince1970 * 100) - self.startCurrentTime
                 self.lapTime = CLong(Date().timeIntervalSince1970 * 100) - self.startLapTime
                 self.delegate?.updateTimerView(currentTime: self.currentTime, lapTime: self.lapTime)
